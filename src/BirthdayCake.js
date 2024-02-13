@@ -74,7 +74,7 @@ const BirthdayCake = () => {
   const flameSprings = useSprings(
     numberOfFlames,
     candlePositions.map(({ bottom }, index) => {
-      const shouldDisappear = blowing && Math.random() < 0.25;
+      const shouldDisappear = blowing && Math.random() < 0.2;
   
       return {
         from: { bottom: animationStarted ? 1500 : bottom, opacity: 1 },
@@ -117,7 +117,7 @@ const BirthdayCake = () => {
         const detectBlowing = () => {
           analyzer.getByteFrequencyData(dataArray);
           const average = dataArray.reduce((sum, value) => sum + value, 0) / bufferLength;
-          setBlowing(average > 25);
+          setBlowing(average > 75);
           requestAnimationFrame(detectBlowing);
         };
 
